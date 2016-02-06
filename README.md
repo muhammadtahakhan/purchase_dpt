@@ -3,7 +3,7 @@ Purchase Request Application
 
 This application is for creating purchase requests that request will be approve by multiple different level of users(or people of company).
 This app work on token system for process the purchase request.
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
+
 
 DIRECTORY STRUCTURE
 -------------------
