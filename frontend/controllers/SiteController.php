@@ -12,6 +12,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\ForbiddenHttpException;
 
 /**
  * Site controller
@@ -115,7 +116,8 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $model = new ContactForm();
+        if(Yii::$app->user->can('create-company')){
+            $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
@@ -129,6 +131,10 @@ class SiteController extends Controller
                 'model' => $model,
             ]);
         }
+        }else{
+            throw new ForbiddenHttpException;
+        }
+        
     }
 
     /**
@@ -138,7 +144,15 @@ class SiteController extends Controller
      */
     public function actionAbout()
     {
-        return $this->render('about');
+      
+        
+         if(Yii::$app->user->can('create-company')){
+          
+         return $this->render('about');
+        }else{
+            throw new ForbiddenHttpException;
+        }
+      
     }
 
     /**
