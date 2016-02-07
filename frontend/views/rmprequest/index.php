@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel frontend\models\TmprequstSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Tmp Requests');
+$this->title = Yii::t('app', 'Requests');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="tmp-request-index">

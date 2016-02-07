@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\TmpRequest */
 
-$this->title = Yii::t('app', 'Create Tmp Request');
+$this->title = Yii::t('app', 'Create Request');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Tmp Requests'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
